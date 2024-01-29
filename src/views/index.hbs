@@ -1,0 +1,118 @@
+<title>Bienvenido nuevamente</title>
+<link rel="stylesheet" href="css/index.css">
+
+
+<body>
+    <section class="contenedor">
+        <section class="panel">
+
+            <nav class="navegacion">
+                <div class="logo-h">
+                     <span>Aeronautica Civil</span>
+                <span id="cel-v">v1.0 Alpha</span>
+                </div>
+               
+                
+                <div class="botones-panel">
+                    <li class="active"><i class="fa-solid fa-house"></i><a href="/">Home</a></li>
+                    <li><i class="fa-solid fa-magnifying-glass"></i><a href="../Resultado/resultado.html">Buscador</a></li>
+                    <li><i class="fa-solid fa-database"></i><a href="/database">Base de datos</a></li>
+                </div>
+
+            </nav>
+            <div class="version">
+                <img src="img/Logos/LOGO-COLOMBIA-POTENCIA-DE-LA-VIDA-3.png" alt="">
+                <span>v1.0 Alpha</span>
+
+            </div>
+        </section>
+        <main class="contenido">
+            <header>
+                <h3>Dashboard</h3>
+                <div class="fecha">
+                    <span class="dia">Calculando...</span><br>
+                    <span class="hora">Calculando...</span><br>
+                </div>
+                <div class="pop">
+                    <img src="img/Logos/Logo-azul.svg" alt="logo">
+                    <span>Administrador</span>
+                </div>
+
+
+            </header>
+            <img src="img/Logos/banner.jpg" alt="banner" width="100%" id="banner">
+            <h3>Opciones</h3>
+            <div class="opciones">
+                <div class="buscador caja" id="open">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <div class="contenido-buscar">
+                        <h4>Buscar un archivo</h4>
+                        <p>Aqui podras buscar la ubicacion topografica de cualquier archivo que esté en la base de datos
+                            con solo ingresar la referencia.</p>
+                    </div>
+                </div>
+                <div class="database caja" id="btn-db">
+                    <i class="fa-solid fa-database"></i>
+                    <div class="contenido-buscar">
+                        <h4>Gestionar base de datos</h4>
+                        <p>Aqui podras gestionar los archivos existentes o crear uno nuevo para la base de datos.</p>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="logo">
+                    <img src="img/Logos/SGDEA.svg" alt="SGVDA">
+                    <div class="informacion">
+                        <h3>Grupo de Gestion Documental</h3>
+                        
+                        <span>Hecho por Grupo análisisis y desarrollo de software <a href="">correo@gmail.com</a></span>
+                    </div>
+
+                </div>
+                <div class="cajas">
+                    <div class="info">
+                        <h4>Informacion</h4>
+                        <span> Av. Eldorado 103-15</span><br>
+                        <span>EDIFICIO CENTRAL AEROCIVIL</span><br>
+                        <span>Bogotá D.C. Colombia</span><br>
+
+                    </div>
+                    <div class="info">
+                        <h4>Atencion al ciudadano</h4>
+                        <span>Telefono: 6012963336</span><br>
+                        <span><a
+                                href="mailto:archivogeneral@aerocivil.gov.co">archivogeneral@aerocivil.gov.co</a>
+                        </span><br>
+                        <span>HORARIO DE ATENCIÓN: Lunes a viernes 8:00am a 4:30pm</span><br>
+                       
+                    </div>
+                </div>
+
+            </footer>
+        </main>
+
+          <!-- popup -->
+    <div id="modal_container" class="modal-container">
+        <div class="modal">
+            <form class="form" method="POST" action="/ticket/nueva-solicitud">
+    
+                <p class="title">¿Que vamos a buscar?</p>
+                <p class="message">aqui podras buscar cualquier caja que este en la base de datos.</p>
+                <div class="flex">
+                    <label>
+                        <span>Cod. Serie</span>
+                        <input placeholder="" type="text" class="input" name="titulo">
+                    </label>
+    
+    
+                </div>
+    
+                <div class="botones-form">
+                    <span class="cancelar" id="close">Cancelar</span>
+                    <button class="crear" name="crear">Buscar</button>
+            </form>
+        </div>
+
+         <script src="js/main.js"></script>
+    </section>
+</body>

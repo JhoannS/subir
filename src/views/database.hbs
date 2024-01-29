@@ -1,0 +1,223 @@
+<title>Base de datos</title>
+<link rel="stylesheet" href="css/db.css">
+
+<body>
+  <section class="contenedor">
+    <section class="panel">
+
+      <nav class="navegacion">
+        <div class="logo-h">
+          <span>Aeronautica Civil</span>
+          <span id="cel-v">v1.0 Alpha</span>
+        </div>
+
+
+        <div class="botones-panel">
+          <li><i class="fa-solid fa-house"></i><a href="/">Home</a></li>
+          <li><i class="fa-solid fa-magnifying-glass"></i><a href="../Resultado/resultado.html">Buscador</a></li>
+          <li class="active"><i class="fa-solid fa-database"></i><a href="">Base de datos</a></li>
+        </div>
+
+      </nav>
+      <div class="version">
+        <img src="img/Logos/LOGO-COLOMBIA-POTENCIA-DE-LA-VIDA-3.png" alt="">
+        <span>v1.0 Alpha</span>
+
+      </div>
+    </section>
+
+    <main class="contenido">
+      <header>
+        <h3>Base de datos:</h3>
+        <div class="fecha">
+          <span class="dia">Calculando...</span><br>
+          <span class="hora">Calculando...</span><br>
+        </div>
+        <div class="pop">
+          <img src="img/Logos/Logo-azul.svg" alt="logo">
+          <span>Administrador</span>
+        </div>
+
+
+      </header>
+
+      <div class="navegador">
+        <span>Home</span> > <span id="buscador">Base de datos</span>
+      </div>
+
+      <section class="table-container">
+
+        <section class="BD">
+          <div class="register">
+            <input type="search" placeholder="Palabra clave...">
+            <button class="button-active-form" id="open" type="button">+ Registrar</button>
+          </div>
+        </section>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="icon-table"><i class="fa-solid fa-bookmark"></i> </th>
+              <th>Oficina</th>
+              <th>Nom. Serie</th>
+              <th> Nom. Subserie </th>
+              <th>N° Carpetas</th>
+              <th>Caja</th>
+              <th>Pasillo</th>
+              <th>Cuerpo</th>
+              <th>Estante</th>
+              <th>Entrepaño</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each datos}}
+            <tr>
+              <td>{{referencia}}</td>
+              <td>{{oficina}}</td>
+              <td>{{nombre_serie}}</td>
+              <td>{{nombre_subserie}}</td>
+              <td>{{numero_carpetas}}</td>
+              <td>{{caja}}</td>
+              <td>{{pasillo}}</td>
+              <td>{{cuerpo}}</td>
+              <td>{{estante}}</td>
+              <td>{{entrepano}}</td>
+              <td>
+                <div class="options-container">
+                  <span><a href="/database/edit/{{_id}}"><i class="fa-solid fa-pen" id="editar"></i></a> </span>
+
+                  <form action="/database/delete/{{_id}}?_method=DELETE" method="POST"><button type="submit"><span><a
+                          href="#"><i class="fa-solid fa-trash" id="eliminar"></i></a></span></button></form>
+                  <input type="hidden" name="_method" value="DELETE">
+                </div>
+              </td>
+            </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+      </section>
+      <footer>
+        <div class="logo">
+          <img src="img/Logos/SGDEA.svg" alt="colombia">
+          <div class="informacion">
+            <h3>Grupo de Gestion Documental</h3>
+
+            <span>Hecho por Grupo análisisis y desarrollo de software <a href="">correo@gmail.com</a></span>
+          </div>
+
+        </div>
+        <div class="cajas">
+          <div class="info">
+            <h4>Informacion</h4>
+            <span> Av. Eldorado 103-15</span><br>
+            <span>EDIFICIO CENTRAL AEROCIVIL</span><br>
+            <span>Bogotá D.C. Colombia</span><br>
+
+          </div>
+          <div class="info">
+            <h4>Atencion al ciudadano</h4>
+            <span>Telefono: 6012963336</span><br>
+            <span><a href="mailto:archivogeneral@aerocivil.gov.co">archivogeneral@aerocivil.gov.co</a>
+            </span><br>
+            <span>HORARIO DE ATENCIÓN: Lunes a viernes 8:00am a 4:30pm</span><br>
+
+          </div>
+        </div>
+
+      </footer>
+
+
+    </main>
+    <div id="modal_container" class="modal-container">
+      <div class="modal">
+        <form class="form" action="/database/add" method="post">
+
+          <p class="title">Realizar nuevo registro</p>
+          <p class="message">Debes llenar los siguientes campos correctamente para que sea un registro exitoso.</p>
+          <div class="flex">
+            <label>
+              <span>Referencia</span>
+              <input placeholder=" 📑 Numero de referencia" name="referencia" autocomplete="off" type="text"
+                class="input" name="titulo">
+            </label>
+            <div class="flex">
+              <div class="select">
+                <select name="oficina" id="format">
+                  <option selected disabled>Dependencia</option>
+                  <option value="Dirección de estandares de vuelo 1">Dirección de estandares de vuelo 1</option>
+                  <option value="Dirección de estandares de vuelo 2">Dirección de estandares de vuelo 2</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex">
+            <label>
+              <span>Nombre subserie</span>
+              <input placeholder=" 📑 Nombre subserie" name="nombre_subserie" autocomplete="off" type="text"
+                class="input" name="titulo">
+            </label>
+
+            <label>
+              <span>Nombre serie</span>
+              <input placeholder=" 📑 Nombre subserie" name="nombre_serie" autocomplete="off" type="text" class="input"
+                name="titulo">
+            </label>
+          </div>
+
+          <div class="flex">
+            <label>
+              <span>N° Carpetas</span>
+              <input placeholder=" 📁 Numero de carpeta" name="numero_carpetas" autocomplete="off" type="text"
+                class="input" name="titulo">
+            </label>
+
+            <label>
+              <span>N° Caja</span>
+              <input placeholder=" 📦 Caja" name="caja" autocomplete="off" type="text" class="input" name="titulo">
+            </label>
+          </div>
+
+          <div class="flex">
+            <label>
+              <span>Entrepaño</span>
+              <input placeholder=" 🔢 Entrepaño" name="entrepano" autocomplete="off" type="text" class="input"
+                name="titulo">
+            </label>
+
+            <label>
+              <span>Estante</span>
+              <input placeholder=" 🗃️Estante" name="estante" autocomplete="off" type="text" class="input"
+                name="titulo">
+            </label>
+          </div>
+
+          <div class="flex">
+            <label>
+              <span>Cuerpo</span>
+              <input placeholder=" 🔠 Cuerpo" name="cuerpo" autocomplete="off" type="text" class="input" name="titulo">
+            </label>
+
+            <label>
+              <span>Pasillo</span>
+              <input placeholder=" 🔠 Pasillo" name="pasillo" autocomplete="off" type="text" class="input"
+                name="titulo">
+            </label>
+          </div>
+
+
+
+
+
+          <div class="botones-form">
+            <span class="cancelar" id="close">Regresar</span>
+            <button class="crear" name="crear">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="js/main.js"></script>
+</body>
